@@ -45,7 +45,7 @@ Route::get('/scabber', function() {
         'base_uri' => 'https://172.20.9.103',
         'verify' => 'false'
     ]);
-    $response = $client->post('accio/admission', [
+    $response = $client->post('/accio/admission', [
         'headers' => [],
         'form_params' => [
             'token' => env('scabbers_token'),
@@ -58,4 +58,23 @@ Route::get('/scabber', function() {
         return 'Error!';
     }
     return json_decode($response->getBody(), true);
+});
+
+Route::get('/orawan', function() {
+    $client = new \GuzzleHttp\Client([
+        'base_uri' => 'https://devsiwebapi.mahidol.ac.th',
+    ]);
+    $response = $client->post('checkuser/api/User', [
+        'headers' => [],
+        'json' => [
+            'user' => '',
+            'pass' => ''
+        ]
+    ]);
+
+    if($response->getStatusCode() !== 200)
+    {
+        return 'Error!';
+    }
+    return json_decode($response->getBody(), true)[0];
 });
