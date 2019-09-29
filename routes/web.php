@@ -37,7 +37,6 @@ Route::get('/smuggle', function() {
         return 'Error!';
     }
     return json_decode($response->getBody(), true);
-    
 });
 
 Route::get('/scabber', function() {
@@ -67,8 +66,8 @@ Route::get('/orawan', function() {
     $response = $client->post('checkuser/api/User', [
         'headers' => [],
         'json' => [
-            'user' => '',
-            'pass' => ''
+            'user' => 10022345,
+            'pass' => 'password'
         ]
     ]);
 
@@ -76,5 +75,37 @@ Route::get('/orawan', function() {
     {
         return 'Error!';
     }
-    return json_decode($response->getBody(), true)[0];
+    return json_decode($response->getBody(), true);
 });
+
+
+Route::get('/line', function() {
+    $client = new \GuzzleHttp\Client([
+        'base_uri' => 'https://sakid.co'
+    ]);
+    $response = $client->post('/api/line-messaging', [
+        'headers' => [
+            'Accept' => 'application/json',
+            'token' => config('app.sakid_api_token'),
+            'secret' => config('app.sakid_api_secret'),
+        ],
+        'form_params' => [
+            'type' => 'location',
+            'username' => 'fonfonfon',
+            'title' => 'ท่าวังหลัง', // free text
+            'address' => 'เจอกัน ทักกันบ้างนะ', // free text
+            'latitude' => 13.7558452,
+            'longitude' => 100.4844983
+        ]
+    ]);
+
+    if($response->getStatusCode() !== 200)
+    {
+        return 'Error!';
+    }
+    return json_decode($response->getBody(), true);
+});
+
+Route::post('/portal', 'PortalController');
+
+Route::post('/notify', 'NotificationController');

@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // custom service providers
+        App\Providers\SiITServicesProvider::class,
+        App\Providers\NotificationServicesProvider::class,
+
     ],
 
     /*
@@ -228,4 +232,10 @@ return [
 
     ],
 
+    'SiIT_PROVIDER' => env('SiIT_SERVICES_PROVIDER','App\APIs\Smuggle'),
+
+    'sakid_api_token' => env('sakid_api_token'),
+    'sakid_api_secret' => env('sakid_api_secret'),
+
+    'NOTIFICATION_PROVIDER' => env('NOTIFICATION_PROVIDER','App\APIs\Line'),
 ];
