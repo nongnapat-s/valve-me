@@ -237,5 +237,5 @@ return [
     'sakid_api_token' => env('sakid_api_token'),
     'sakid_api_secret' => env('sakid_api_secret'),
 
-    'NOTIFICATION_PROVIDER' => env('NOTIFICATION_PROVIDER','App\APIs\Line'),
+    'NOTIFICATION_PROVIDER' => env('NOTIFICATION_PROVIDER','App\Notifications\Line'),
 ];

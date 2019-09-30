@@ -1,6 +1,6 @@
 <?php
 
-namespace App\APIs;
+namespace App\Notifications;
 
 use \GuzzleHttp\Client;
 use App\Contracts\NotificationServicesCaller;
