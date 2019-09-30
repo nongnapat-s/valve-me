@@ -233,9 +233,12 @@ return [
     ],
 
     'SiIT_PROVIDER' => env('SiIT_SERVICES_PROVIDER','App\APIs\Smuggle'),
+    'NOTIFICATION_PROVIDER' => env('NOTIFICATION_PROVIDER','App\Notifications\Line'),
 
     'sakid_api_token' => env('sakid_api_token'),
     'sakid_api_secret' => env('sakid_api_secret'),
+    
+    'scabber_token' => env('scabbers_token'),
 
-    'NOTIFICATION_PROVIDER' => env('NOTIFICATION_PROVIDER','App\Notifications\Line'),
+    
 ];

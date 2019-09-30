@@ -18,7 +18,8 @@ class Scabber implements SiITServicesCaller {
     public function __construct($returnJSONString = false)
     {
         $this->client = new Client([
-            'base_uri' => 'https://172.9.20.103',
+            'base_uri' => 'https://172.20.9.103',
+            'verify' => false
         ]);
 
         $this->returnJSONString = $returnJSONString;
@@ -27,47 +28,37 @@ class Scabber implements SiITServicesCaller {
     public function authenticate($orgId, $password)
     {
         $this->params['form_params'] = [
-            'function' => 'authenticate',
-            'org_id'   => $orgId,
+            'token'   => config('app.scabber_token'),
+            'org_id' => $orgId,
             'password' => $password
         ];
-        return $this->makePost('/smuggle/accio');    
+        return $this->makePost('accio/authenticate');    
     }
 
     public function getAdmission($an)
     {
         $this->params['form_params'] = [
-            'function' => 'admission',
+            'token'   => config('app.scabber_token'),
             'an' => $an
         ];
-        return $this->makePost('/smuggle/accio');
+        return $this->makePost('accio/admission');
     }
 
     public function getPatient($hn)
     {
         $this->params['form_params'] = [
-            'function' => 'patient',
+            'token'   => config('app.scabber_token'),
             'hn' => $hn,
         ];
-        return $this->makePost('/smuggle/accio');
-    }
-
-    public function getPatientRecentlyAdmit($hn)
-    {
-        $this->params['form_params'] = [
-            'function' => 'recently-admit',
-            'hn' => $hn,
-        ];
-        return $this->makePost('/smuggle/accio');
+        return $this->makePost('accio/patient');
     }
 
     public function getUser($orgId)
     {
         $this->params['form_params'] = [
-            'function' => 'user',
             'org_id' => $orgId,
         ];
-        return $this->makePost('/smuggle/accio');
+        return $this->makePost('/smuggle/user');
     }
 }
 

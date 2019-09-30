@@ -58,15 +58,6 @@ class Smuggle implements SiITServicesCaller {
         return $this->makePost('/smuggle/accio');
     }
 
-    public function getPatientRecentlyAdmit($hn)
-    {
-        $this->params['form_params'] = [
-            'function' => 'recently-admit',
-            'hn' => $hn,
-        ];
-        return $this->makePost('/smuggle/accio');
-    }
-
     public function getUser($orgId)
     {
         $this->params['form_params'] = [

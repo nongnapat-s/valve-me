@@ -10,7 +10,5 @@ interface SiITServicesCaller
 
     public function getPatient($hn);
 
-    public function getPatientRecentlyAdmit($hn);
-
     public function getUser($orgId);
 }
