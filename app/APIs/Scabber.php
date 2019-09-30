@@ -28,7 +28,7 @@ class Scabber implements SiITServicesCaller {
     public function authenticate($orgId, $password)
     {
         $this->params['form_params'] = [
-            'token'   => config('app.scabber_token'),
+            'token' => config('app.scabber_token'),
             'org_id' => $orgId,
             'password' => $password
         ];
@@ -38,7 +38,7 @@ class Scabber implements SiITServicesCaller {
     public function getAdmission($an)
     {
         $this->params['form_params'] = [
-            'token'   => config('app.scabber_token'),
+            'token' => config('app.scabber_token'),
             'an' => $an
         ];
         return $this->makePost('accio/admission');
@@ -47,7 +47,7 @@ class Scabber implements SiITServicesCaller {
     public function getPatient($hn)
     {
         $this->params['form_params'] = [
-            'token'   => config('app.scabber_token'),
+            'token' => config('app.scabber_token'),
             'hn' => $hn,
         ];
         return $this->makePost('accio/patient');
@@ -56,10 +56,10 @@ class Scabber implements SiITServicesCaller {
     public function getUser($orgId)
     {
         $this->params['form_params'] = [
+            'token' => config('app.scabber_token'),
             'org_id' => $orgId,
         ];
-        return $this->makePost('/smuggle/user');
+        return $this->makePost('/accio/user');
     }
 }
-
 ?>

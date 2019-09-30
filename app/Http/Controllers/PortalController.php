@@ -7,6 +7,10 @@ use App\Contracts\SiITServicesCaller;
 
 class PortalController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware('portalGuard');
+    }
     
     public function __invoke(SiITServicesCaller $caller)
     {

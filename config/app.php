@@ -177,7 +177,6 @@ return [
 
         // custom service providers
         App\Providers\SiITServicesProvider::class,
-        App\Providers\NotificationServicesProvider::class,
 
     ],
 
@@ -232,8 +231,10 @@ return [
 
     ],
 
-    'SiIT_PROVIDER' => env('SiIT_SERVICES_PROVIDER','App\APIs\Smuggle'),
-    'NOTIFICATION_PROVIDER' => env('NOTIFICATION_PROVIDER','App\Notifications\Line'),
+    'SiIT_PROVIDER' => env('SiIT_SERVICES_PROVIDER','App\APIs\Orawan'),
+
+    'smuggle_api_token' => env('smuggle_api_token'),
+    'smuggle_api_secret' => env('smuggle_api_secret'),
 
     'sakid_api_token' => env('sakid_api_token'),
     'sakid_api_secret' => env('sakid_api_secret'),

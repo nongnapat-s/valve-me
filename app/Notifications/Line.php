@@ -3,10 +3,9 @@
 namespace App\Notifications;
 
 use \GuzzleHttp\Client;
-use App\Contracts\NotificationServicesCaller;
 use App\Traits\MakePostable;
 
-class Line implements NotificationServicesCaller {
+class Line {
 
     use MakePostable;
 
@@ -69,8 +68,8 @@ class Line implements NotificationServicesCaller {
             'username' => $username,
             'title' => $title,
             'address' => $address,
-            'latitude' => 13.7558452,
-            'longitude' => 100.4844983
+            'latitude' => $latitude,
+            'longitude' => $longitude
         ];
         return $this->makePost('/api/line-messaging');
     }

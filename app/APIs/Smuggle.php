@@ -23,8 +23,8 @@ class Smuggle implements SiITServicesCaller {
 
         $this->params['headers'] = [
             'Accept' => 'application/json',
-            'token' => env('smuggle_api_token'),
-            'secret' => env('smuggle_api_secret'),
+            'token' => config('app.smuggle_api_token'),
+            'secret' => config('app.smuggle_api_secret'),
         ];
 
         $this->returnJSONString = $returnJSONString;
@@ -67,5 +67,4 @@ class Smuggle implements SiITServicesCaller {
         return $this->makePost('/smuggle/accio');
     }
 }
-
 ?>
