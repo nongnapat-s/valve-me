@@ -33,23 +33,23 @@ class Orawan implements SiITServicesCaller
 
     public function getAdmission($an)
     {
-        return ['reply_code' => 99, 'reply_text' => 'Test Orawan'];
+        return ['return_code' => 0, 'reply_text' => 'Test Orawan'];
     }
 
     public function getPatient($hn)
     {
-        return ['reply_code' => 99, 'reply_text' => 'Test Orawan'];
+        return ['return_code' => 0, 'reply_text' => 'Test Orawan'];
 
     }
 
     public function getPatientRecentlyAdmit($hn)
     {
-        return ['reply_code' => 99, 'reply_text' => 'Test Orawan'];
+        return ['return_code' => 0, 'reply_text' => 'Test Orawan'];
     }
 
     public function getUser($orgId)
     {
-        return ['reply_code' => 99, 'reply_text' => 'Test Orawan'];
+        return ['return_code' => 0, 'reply_text' => 'Test Orawan'];
     }
 }
 ?>

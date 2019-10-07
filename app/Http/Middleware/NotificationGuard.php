@@ -39,8 +39,8 @@ class NotificationGuard
             !isset($payload['key_value']) ||
             // validate function
             !in_array($payload['function'], $this->functions) ||
-            // message is required if request send-message
-            ($payload['function'] == 'send-message' && !isset($payload['message'])) ||
+            // text is required if request send-message
+            ($payload['function'] == 'send-message' && !isset($payload['text'])) ||
             // originale_url and preview_url are required if request send-image
             ($payload['function'] == 'send-image' && (!isset($payload['original_url']) || !isset($payload['preview_url']))) ||
             // package_id and sticker_id are required if request send-sticker

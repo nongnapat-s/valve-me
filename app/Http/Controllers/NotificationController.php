@@ -19,7 +19,7 @@ class NotificationController extends Controller
         
         switch ($payload['function']) {
             case 'send-message':
-                return $notify->sendMessage($payload['key_value'], $payload['message']);
+                return $notify->sendMessage($payload['key_value'], $payload['text']);
             case 'send-image':
                 return $notify->sendImage($payload['key_value'], $payload['original_url'], $payload['preview_url']);
             case 'send-sticker':
