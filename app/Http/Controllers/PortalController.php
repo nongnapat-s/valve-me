@@ -23,8 +23,6 @@ class PortalController extends Controller
                 return $caller->getAdmission($payload['key_value']);
             case 'patient':
                 return $caller->getPatient($payload['key_value']);
-            case 'recently-admit':
-                return $caller->getPatientRecentlyAdmit($payload['key_value']);
             case 'user':
                 return $caller->getUser($payload['key_value']);
             default :
